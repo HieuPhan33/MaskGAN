@@ -26,7 +26,7 @@ pip install -r requirements.txt
 ```
 
 ## Dataset Preparation and Mask Generations
-To be uploaded
+Refer to [preprocess/README.md](./preprocess/README.md) file.
 
 ## MaskGAN Training and Testing
 - Sampled training script is provided in train.sh
