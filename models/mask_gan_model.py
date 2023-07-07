@@ -83,7 +83,7 @@ class MaskGANModel(BaseModel):
 
             models, optimizers = amp.initialize([self.netG_A, self.netG_B, self.netD_A, self.netD_B], 
                                     self.optimizers,
-                                        opt_level="O0", num_losses=2)
+                                        opt_level=opt.opt_level, num_losses=2)
             self.netG_A, self.netG_B, self.netD_A, self.netD_B = models
 
             self.netG_A = torch.nn.DataParallel(self.netG_A, self.gpu_ids)
