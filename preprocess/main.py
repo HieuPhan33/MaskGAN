@@ -45,20 +45,26 @@ def normalize(img, min_=None, max_=None):
 
 
 def crop_scan(img, mask, crop=0, crop_h=0, ignore_zero=True):
+    # Swap dimensions for visualizability - modify as needed
     img = np.transpose(img, (0,2,1))[:,::-1,::-1]
     if mask is not None:
         mask = np.transpose(mask, (0,2,1))[:,::-1,::-1]
+    
+    # Exclude all zero (air only) slices during training - modify as needed
     if ignore_zero:
         mask_ = img.sum(axis=(1,2)) > 0
         img = img[mask_]
         if mask is not None:
             mask = mask[mask_]
+    
+    # Crop depth dimension - modify as needed
     if crop > 0:
         length = img.shape[0]
         img = img[int(crop*length): int((1-crop)*length)]
         if mask is not None:
             mask = mask[int(crop*length): int((1-crop)*length)]
     
+    # Crop height dimension - modify as needed
     if crop_h > 0:
         if img.shape[1] > 200:
             crop_h = 0.8
@@ -84,11 +90,11 @@ def get_3d_mask(img, min_, max_=None, th=50, width=2):
     img = np.clip(img, min_, max_)
     img = np.uint8(255*normalize(img, min_, max_))
 
-    ## Remove holes
+    ## Remove artifacts
     mask = np.zeros(img.shape).astype(np.int32)
     mask[img > th] = 1
 
-    ## Opening np.ones((3,3,3))
+    ## Remove artifacts and small holes with binary opening
     mask = morphology.binary_opening(mask, )
 
     remove_holes = morphology.remove_small_holes(
@@ -118,10 +124,9 @@ def parse_float_array(s):
 
 
 if __name__ == '__main__':
-    root = '/data/data/MRXFDG-PET-CT-MRI/home/pool/DM/TEP/CERMEP_MXFDG/BASE/DATABASE_SENT/ALL/derivatives/MNI'
     parser = argparse.ArgumentParser(description='Preprocess data')
     # Add arguments
-    parser.add_argument('--root', type=str, default=root, help='Data root dir')
+    parser.add_argument('--root', type=str, help='Data root dir')
     parser.add_argument('--out', type=str, default='processed-mr-ct', help='Output directory')
     parser.add_argument('--resample', nargs='+', type=float, default=[1.0, 1.0, 1.0], help='Resample scan resolutions')
     args = parser.parse_args()
