@@ -15,7 +15,7 @@ The repository offers the official implementation of our paper in PyTorch.
 
 ## Installation
 ### Option 1: Directly use our Docker image
-- We have created a public docker image `docker pull stevephan46/maskgan:d20b79d4731210c9d287a370e37b423006fd1425`.
+- We have created a public docker image `stevephan46/maskgan:d20b79d4731210c9d287a370e37b423006fd1425`.
 - Script to pull docker image and run docker container for environment setup:
 ```bash
 docker pull stevephan46/maskgan:d20b79d4731210c9d287a370e37b423006fd1425
