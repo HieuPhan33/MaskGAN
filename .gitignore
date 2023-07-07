@@ -1,0 +1,14 @@
+checkpoints*
+AttentionGAN-v1*
+AttentionGAN-geo
+*pycache*
+sam
+wandb
+.vscode
+scripts/GAN_Metrics-Tensorflow/*gz
+*png
+results
+.vscode
+wandb
+train.sh
+test.sh
