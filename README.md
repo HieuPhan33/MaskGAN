@@ -7,7 +7,10 @@ Such masks, although imperfect, provide sufficient cues for MaskGAN to capture a
 ![Framework](./imgs/maskgan_v2.svg)
 
 ## Comparsion with State-of-the-Art Methods on Paediatric MR-CT Synthesis
-![Result](./imgs/results.pdf)
+<object data="imgs/results.pdf" type="application/pdf" width="100%" height="600px">
+  <p>Unable to display PDF. Click <a href="imgs/results.pdf">here</a> to download it.</p>
+</object>
+
 
 
 The repository offers the official implementation of our paper in PyTorch.
