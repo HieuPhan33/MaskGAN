@@ -14,9 +14,9 @@ The repository offers the official implementation of our paper in PyTorch.
 
 
 ## Installation
-Option 1: Directly use our Docker image
+### Option 1: Directly use our Docker image
 
-Option 2: Install environments locally
+### Option 2: Install environments locally
 
 - This code uses PyTorch 1.8.1, Python 3.8 and [apex](https://github.com/NVIDIA/apex) for half-precision training support.
 
