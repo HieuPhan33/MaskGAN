@@ -49,6 +49,14 @@ class UnalignedDataset(BaseDataset):
         # self.transform_maskA = get_transform(self.opt, grayscale=(self.input_nc == 1), mask=True)
         # self.transform_maskB = get_transform(self.opt, grayscale=(self.output_nc == 1), mask=True)
 
+        # Save relative position of each img Input images should be given in the format xxxx_RELATIVEPOSITION.jpg
+        self.relative_pos_A = [int(img.split(".")[-2].split("_")[-1]) for img in self.A_paths]
+        self.relative_pos_B = [int(img.split(".")[-2].split("_")[-1]) for img in self.B_paths]
+        # Define range of adjacent slices to consider
+        if opt.phase == 'train':
+            self.position_based_range = opt.position_based_range*10
+
+
     def __getitem__(self, index):
         """Return a data point and its metadata information.
 
@@ -66,7 +74,17 @@ class UnalignedDataset(BaseDataset):
         if self.opt.serial_batches:   # make sure index is within then range
             index_B = index % self.B_size
         else:   # randomize the index for domain B to avoid fixed pairs.
-            index_B = random.randint(0, self.B_size - 1)
+            # Check the relative position of the image (Position based selection PBS)
+            A_path_spplited = A_path.split(".")
+            A_relative_position = A_path_spplited[-2].split("_")[-1]
+            # Convert to a number
+            A_relative_position = float(A_relative_position)
+            # Obtain the images in a similar range (Position based selection)
+            potential_indexes = [index for index, value in enumerate(self.relative_pos_B) if (A_relative_position-self.position_based_range) <= value <= (A_relative_position + self.position_based_range)]
+            # Define position of B image
+            potential_indexes = list(set(potential_indexes) & set(potential_indexes))
+            index_position = random.randint(0, len(potential_indexes) - 1)
+            index_B = potential_indexes[index_position]
         B_path = self.B_paths[index_B]
         maskA_path = self.maskA_paths[index_A]
         maskB_path = self.maskB_paths[index_B]

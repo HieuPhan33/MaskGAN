@@ -8,15 +8,14 @@
 * **Refinement MaskGAN version**: An extended model, which refined images using a simple, yet effective multi-stage, multi-plane approach is develop to improve the volumetric definition of synthetic images.
 * **Model enhancements**: We include selection strategies to choose similar MRI/CT matches based on the position of slices.
 
-
 ## MaskGAN Framework
 
- A novel unsupervised MR-to-CT synthesis method that preserves the anatomy under the explicit supervision of coarse masks without using costly manual annotations. MaskGAN bypasses the need for precise annotations, replacing them with standard (unsupervised) image processing techniques, which can produce coarse anatomical masks. 
+A novel unsupervised MR-to-CT synthesis method that preserves the anatomy under the explicit supervision of coarse masks without using costly manual annotations. MaskGAN bypasses the need for precise annotations, replacing them with standard (unsupervised) image processing techniques, which can produce coarse anatomical masks. 
 Such masks, although imperfect, provide sufficient cues for MaskGAN to capture anatomical outlines and produce structurally consistent images.
 
 ![Framework](./imgs/maskgan_v2.svg)
 
-## Comparsion with State-of-the-Art Methods on Paediatric MR-CT Synthesis
+## Comparison with State-of-the-Art Methods on Paediatric MR-CT Synthesis
 ![Result](./imgs/results.jpg)
 
 
