@@ -1,6 +1,16 @@
 # MaskGAN for Unpaired MR-to-CT Translation
 
+ [![arXiv](https://img.shields.io/badge/arXiv-2311.12437-blue)](https://arxiv.org/pdf/2307.16143) [![cite](https://img.shields.io/badge/cite-BibTex-yellow)](cite.bib)
+
+## Updates!
+
+* New publication is coming out! **Mixed-view Refinement MaskGAN: Anatomical Preservation for Unpaired MRI-to-CT Synthesis**. Stay tuned!
+* **Refinement MaskGAN version**: An extended model, which refined images using a simple, yet effective multi-stage, multi-plane approach is develop to improve the volumetric definition of synthetic images.
+* **Model enhancements**: We include selection strategies to choose similar MRI/CT matches based on the position of slices.
+
+
 ## MaskGAN Framework
+
  A novel unsupervised MR-to-CT synthesis method that preserves the anatomy under the explicit supervision of coarse masks without using costly manual annotations. MaskGAN bypasses the need for precise annotations, replacing them with standard (unsupervised) image processing techniques, which can produce coarse anatomical masks. 
 Such masks, although imperfect, provide sufficient cues for MaskGAN to capture anatomical outlines and produce structurally consistent images.
 
