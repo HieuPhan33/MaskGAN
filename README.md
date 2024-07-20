@@ -1,17 +1,18 @@
-# MaskGAN for Unpaired MR-to-CT Translation
+# MaskGAN for Unpaired MR-to-CT Translation [MICCAI2023]
 
  [![arXiv](https://img.shields.io/badge/arXiv-2311.12437-blue)](https://arxiv.org/pdf/2307.16143) [![cite](https://img.shields.io/badge/cite-BibTex-yellow)](cite.bib)
 
-## Updates!
+## 📢 Updates!
 
 * New publication is coming out! **Mixed-view Refinement MaskGAN: Anatomical Preservation for Unpaired MRI-to-CT Synthesis**. Stay tuned!
 * **Refinement MaskGAN version**: An extended model, which refined images using a simple, yet effective multi-stage, multi-plane approach is develop to improve the volumetric definition of synthetic images.
 * **Model enhancements**: We include selection strategies to choose similar MRI/CT matches based on the position of slices.
 
-## MaskGAN Framework
+## 🏆 MaskGAN Framework
 
-A novel unsupervised MR-to-CT synthesis method that preserves the anatomy under the explicit supervision of coarse masks without using costly manual annotations. MaskGAN bypasses the need for precise annotations, replacing them with standard (unsupervised) image processing techniques, which can produce coarse anatomical masks. 
-Such masks, although imperfect, provide sufficient cues for MaskGAN to capture anatomical outlines and produce structurally consistent images.
+A novel unsupervised MR-to-CT synthesis method
+- preserves the anatomy under the explicit supervision of coarse masks without using costly manual annotations. MaskGAN bypasses the need for precise annotations, replacing them with standard (unsupervised) image processing techniques, which can produce coarse anatomical masks.
+- shape consistency loss to preserve the overall structure of images after a cycle of translation.
 
 ![Framework](./imgs/maskgan_v2.svg)
 
@@ -22,7 +23,7 @@ Such masks, although imperfect, provide sufficient cues for MaskGAN to capture a
 The repository offers the official implementation of our paper in PyTorch.
 
 
-## Installation
+## 🛠️ Installation
 ### Option 1: Directly use our Docker image
 - We have created a public docker image `stevephan46/maskgan:d20b79d4731210c9d287a370e37b423006fd1425`.
 - Script to pull docker image and run docker container for environment setup:
@@ -42,10 +43,10 @@ docker run --name maskgan --gpus all --shm-size=16g -it -v /path/to/data/root:/d
 pip install -r requirements.txt
 ```
 
-## Dataset Preparation and Mask Generations
+## 📚 Dataset Preparation and Mask Generations
 Refer to [preprocess/README.md](./preprocess/README.md) file.
 
-## MaskGAN Training and Testing
+## 🚀 MaskGAN Training and Testing
 - Sampled training script is provided in train.sh
 - Modify image augmentations as needed `--load_size` (resize one dimension to be a fixed size), `--pad_size` (pad both dimensions to an equal size), `--crop_size` (crop both dimensions to an equal size).
 - Train a model:
@@ -69,10 +70,10 @@ sh test.sh
 ```
 - The results will be saved at `./results/exp_name`. Use `--results_dir {directory_path_to_save_result}` to specify the results directory. There will be four folders `fake_A`, `fake_B`, `real_A`, `real_B` created in `results`.
 
-## Evaluate results
+## 🔍 Evaluate results
 - The script `eval.sh` is provided as an example. Modify the variable `exp_name` to match your experiment name specified by parameter `--name` when running test.py.
 
-## Citation
+## 📜 Citation
 If you use this code for your research, please cite our papers.
 
 ```
@@ -84,6 +85,6 @@ If you use this code for your research, please cite our papers.
 }
 ```
 
-## Acknowledgments
+## 🙏 Acknowledgments
 This source code is inspired by [CycleGAN](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) and [AttentionGAN](https://github.com/Ha0Tang/AttentionGAN). 
 
