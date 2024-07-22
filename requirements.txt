@@ -6,3 +6,4 @@ opencv-python==3.4.8.29
 pillow
 wandb
 protobuf==3.20.*
+elasticdeform==0.5.1 
