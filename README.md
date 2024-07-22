@@ -10,9 +10,9 @@
 
 ## 🏆 MaskGAN Framework
 
-A novel unsupervised MR-to-CT synthesis method
-- preserves the anatomy under the explicit supervision of coarse masks without using costly manual annotations. MaskGAN bypasses the need for precise annotations, replacing them with standard (unsupervised) image processing techniques, which can produce coarse anatomical masks.
-- shape consistency loss to preserve the overall structure of images after a cycle of translation.
+A novel unsupervised MR-to-CT synthesis method that:
+- Preserves the anatomy under the explicit supervision of coarse masks without using costly manual annotations. MaskGAN bypasses the need for precise annotations, replacing them with standard (unsupervised) image processing techniques, which can produce coarse anatomical masks.
+- Introduces a Shape consistency loss to preserve the overall structure of images after a cycle of translation.
 
 ![Framework](./imgs/maskgan_v2.svg)
 

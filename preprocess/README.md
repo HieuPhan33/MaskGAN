@@ -1,7 +1,7 @@
 # Preprocess MR-CT data and generate masks
 - For simplicity, we assume the dataset have MRI and CT scans.
 - This code assumes that you have the raw data in three folders: **train**, **val** and **test**. 
-- train set contains only **unpaired images**, whereas val and set contain **paired images**. 
+- **train** set contains only <ins>unpaired images</ins>, whereas **val** and **test** set contain <ins>paired images</ins>. 
 
 ## Environment installation
 Setup using `pip install -r requirements.txt`
