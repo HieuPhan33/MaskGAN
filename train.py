@@ -52,7 +52,7 @@ if __name__ == '__main__':
 
     val_opt = copy.deepcopy(opt)
     val_opt.phase = 'val'
-    val_opt.serial_batch = True
+    val_opt.serial_batches = True
     val_dataset = create_dataset(val_opt)  # create a dataset given opt.dataset_mode and other options
 
     model = create_model(opt)      # create a model given opt.model and other options
