@@ -83,10 +83,14 @@ class BaseModel(ABC):
         """
         if self.isTrain:
             self.schedulers = [networks.get_scheduler(optimizer, opt) for optimizer in self.optimizers]
-        if not self.isTrain or opt.continue_train:
+            if self.opt.use_pretrained_weights:
+                print("Loading pretrained weights")
+                self.load_networks('best')
+        elif not self.isTrain or opt.continue_train:
             load_suffix = 'iter_%d' % opt.load_iter if opt.load_iter > 0 else opt.epoch
-            print(load_suffix)
+            print(f"Using epoch: {load_suffix}")
             self.load_networks(load_suffix)
+        
         self.print_networks(opt.verbose)
 
     def eval(self):
@@ -189,7 +193,10 @@ class BaseModel(ABC):
         for name in self.model_names:
             if isinstance(name, str):
                 load_filename = '%s_net_%s.pth' % (epoch, name)
-                load_path = os.path.join(self.save_dir, load_filename)
+                if self.opt.use_pretrained_weights:
+                    load_path = os.path.join("./pretrained_weights", load_filename)
+                else:      
+                    load_path = os.path.join(self.save_dir, load_filename)
                 net = getattr(self, 'net' + name)
                 if isinstance(net, torch.nn.DataParallel):
                     net = net.module
