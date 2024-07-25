@@ -8,5 +8,7 @@ scripts/GAN_Metrics-Tensorflow/*gz
 results
 .vscode
 wandb
+pretrained_weights/*
+!pretrained_weights/pretrained_weights.txt
 # train.sh
 # test.sh
