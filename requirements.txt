@@ -7,3 +7,4 @@ pillow
 wandb
 protobuf==3.20.*
 elasticdeform==0.5.1
+torchmetrics

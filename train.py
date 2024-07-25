@@ -31,7 +31,8 @@ import copy
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
-    wandb.init(project="testing-maskgan", name=opt.name)
+    if not opt.wdb_disabled: 
+        wandb.init(project="testing-maskgan", name=opt.name)
     train_dataset = create_dataset(opt)  # create a dataset given opt.dataset_mode and other options
     dataset_size = len(train_dataset)    # get the number of images in the dataset.
     print('The number of training images = %d' % dataset_size)

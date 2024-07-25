@@ -3,8 +3,7 @@ import PIL
 import torch
 import numpy as np
 import wandb
-from torchmetrics.image import PeakSignalNoiseRatio
-import monai
+from torchmetrics.image import PeakSignalNoiseRatio, StructuralSimilarityIndexMeasure
 
 def val_visualizations_over_batches(real_a, 
                                     real_b, 
@@ -41,7 +40,7 @@ def validation(val_set, model, opt):
     # Getting MSE
     metric_mse = torch.nn.MSELoss()
     # Getting SSIM
-    metric_ssim = monai.metrics.SSIMMetric(spatial_dims=2, reduction = 'mean')
+    metric_ssim = StructuralSimilarityIndexMeasure(data_range=None,reduction="elementwise_mean")
     # Getting PSNR
     metric_psnr = PeakSignalNoiseRatio()
 
