@@ -23,25 +23,11 @@ from options.train_options import TrainOptions
 from data import create_dataset
 from models import create_model
 from util.visualizer import Visualizer
-#from torchmetrics import StructuralSimilarityIndexMeasure
+from util.validation import validation
 import torch
 import wandb
 import copy
 
-
-def validate(val_set, model):
-    #ssim = StructuralSimilarityIndexMeasure(data_range=1.0)
-    metric = torch.nn.L1Loss()
-    model.eval()
-    errors = 0
-    for i, data in enumerate(val_set):  # inner loop within one epoch
-        model.set_input(data)         # unpack data from dataset and apply preprocessing
-        model.test()   # calculate loss functions, get gradients, update network weights
-        visuals = model.get_current_visuals()
-        real = visuals['real_B']
-        pred = visuals['fake_B']
-        errors += metric(pred.cpu(), real.cpu())
-    return (errors/len(val_set)).item()
 
 if __name__ == '__main__':
     opt = TrainOptions().parse()   # get training options
@@ -97,14 +83,18 @@ if __name__ == '__main__':
             iter_data_time = time.time()
 
         if epoch % opt.save_epoch_freq == 0:              # cache our model every <save_epoch_freq> epochs
-            perf = validate(val_dataset, model)
-            print('saving the model at the end of epoch %d, iters %d, MAE %d' % (epoch, total_iters, perf))
+            perf = validation(val_dataset, model, val_opt)
+            if not opt.wdb_disabled: 
+                    metrics_val = {"val/MAE_fake": perf[0], "val/MSE_fake": perf[1], "val/SSIM_fake" : perf[2], "val/PSNR_fake": perf[3]} 
+                    # Send metrics to WANDB
+                    wandb.log(metrics_val) 
+            print('saving the model at the end of epoch %d, iters %d, MAE %d' % (epoch, total_iters, perf[0]))
             model.save_networks('latest')
             model.save_networks(epoch)
-            if best > perf:
+            if best > perf[0]:
                 print(f"Best Model with MAE={best}")
                 model.save_networks('best')
-                best = perf
+                best = perf[0]
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, opt.niter + opt.niter_decay, time.time() - epoch_start_time))
         model.update_learning_rate()                     # update learning rates at the end of every epoch.
