@@ -70,6 +70,10 @@ sh test.sh
 ```
 - The results will be saved at `./results/exp_name`. Use `--results_dir {directory_path_to_save_result}` to specify the results directory. There will be four folders `fake_A`, `fake_B`, `real_A`, `real_B` created in `results`.
 
+## 💾 Use of pretrained weights
+
+This [zip file](https://drive.usercontent.google.com/download?id=15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i&export=download) contains trained weights of MaskGAN run over MRI/CT pediatric brain dataset. To use them, unzip the contents in the folder `pretrained_weights`. You can use them as pretrained weights during your training step or using directly for testing with the defaults parameters.
+
 ## 🔍 Evaluate results
 - The script `eval.sh` is provided as an example. Modify the variable `exp_name` to match your experiment name specified by parameter `--name` when running test.py.
 
