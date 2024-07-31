@@ -23,11 +23,44 @@ A novel unsupervised MR-to-CT synthesis method that:
 The repository offers the official implementation of our paper in PyTorch. The next reflects some results of using **MaskGAN** in different benchmarks. 
 
 
-| Data | Sample | MAE | SSIM | PSNR |  Weights     |
-|------|--------|---------|---------|---------|--------|
-| Unpaired Pediatric brain MRI/CT images (Private dataset) | <img src="/imgs/pediatric_mri_sample.png" width="100"> <img src="imgs/pediatric_ct_sample.png" width="100"> | 60.76 | 83.23 | 23.95 | [Download](https://drive.google.com/file/d/15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i/view?usp=drive_link) |
-| Unpaired Adult brain MRI/CT images. Original dataset are paired ([Link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8446124/)) | <img src="imgs/adult_mri_sample.png" width="100"> <img src="imgs/adult_ct_sample.png" width="100"> | 44.30 | 87.10 | 22.56 | [Download](https://drive.google.com/file/d/1FUTEDrw8G92zgc0rRZ4TRxHFgkkPhk7R/view?usp=drive_link) |
-| Unpaired Adult abdominal MRI/CT images ([Link](https://chaos.grand-challenge.org/Download/)) | <img src="imgs/abdominal_mri_sample.png" width="100" style="transform: rotate(270deg);"> <img src="imgs/abdominal_ct_sample.png" width="100" style="transform: rotate(270deg);"> | - | - | - | [Download](https://drive.google.com/file/d/1pa3vsPohB6_aCmGoHe_1V851yZHg_1Ae/view?usp=drive_link) |
+<table>
+    <thead>
+        <tr>
+            <th style="width: 200px;">Data</th>
+            <th>Sample</th>
+            <th>MAE</th>
+            <th>SSIM</th>
+            <th>PSNR</th>
+            <th>Weights</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Unpaired Pediatric brain MRI/CT images (Private dataset)</td>
+            <td><img src="imgs/pediatric_mri_sample.png" width="100"> <img src="imgs/pediatric_ct_sample.png" width="100"></td>
+            <td>60.76</td>
+            <td>83.23</td>
+            <td>23.95</td>
+            <td><a href="https://drive.google.com/file/d/15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i/view?usp=drive_link">Download</a></td>
+        </tr>
+        <tr>
+            <td>Unpaired Adult brain MRI/CT images. Original dataset are paired (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8446124/">Link</a>)</td>
+            <td><img src="imgs/adult_mri_sample.png" width="100"> <img src="imgs/adult_ct_sample.png" width="100"></td>
+            <td>44.30</td>
+            <td>87.10</td>
+            <td>22.56</td>
+            <td><a href="https://drive.google.com/file/d/1FUTEDrw8G92zgc0rRZ4TRxHFgkkPhk7R/view?usp=drive_link">Download</a></td>
+        </tr>
+        <tr>
+            <td>Unpaired Adult abdominal MRI/CT images (<a href="https://chaos.grand-challenge.org/Download/">Link</a>)</td>
+            <td><img src="imgs/abdominal_mri_sample.png" width="100" style="transform: rotate(270deg);"> <img src="imgs/abdominal_ct_sample.png" width="100" style="transform: rotate(270deg);"></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td><a href="https://drive.google.com/file/d/1pa3vsPohB6_aCmGoHe_1V851yZHg_1Ae/view?usp=drive_link">Download</a></td>
+        </tr>
+    </tbody>
+</table>
 
 
 
