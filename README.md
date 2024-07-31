@@ -20,7 +20,7 @@ A novel unsupervised MR-to-CT synthesis method that:
 ![Result](./imgs/results.jpg)
 
 
-The repository offers the official implementation of our paper in PyTorch. The next reflects some results of using **MaskGAN** in different benchmarks. Results are shown over original values on radiometric values for MRI and Hounsfield unit (HU) for CT scans.
+The repository offers the official implementation of our paper in PyTorch. The next reflects some results of using **MaskGAN** in different benchmarks. Results are shown over original values on radiometric values for MRI and Hounsfield unit (HU) for CT scans. In addition, the best weights obtained during the training stage are shared to be used for inference or retraining.
 
 
 | Data | Sample | MAE | SSIM | PSNR |  Weights     |
@@ -85,6 +85,8 @@ This [zip file](https://drive.usercontent.google.com/download?id=15e1pS2V2DDdQQq
 ```
 --use_pretrained_weights True
 ```
+
+You can use other pretrained weights, which are shown in the first table of this page. 
 
 ## 🔍 Evaluate results
 - The script `eval.sh` is provided as an example. Modify the variable `exp_name` to match your experiment name specified by parameter `--name` when running test.py.
