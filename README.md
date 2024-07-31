@@ -26,7 +26,7 @@ The repository offers the official implementation of our paper in PyTorch. The n
 <table>
     <thead>
         <tr>
-            <th style="width: 200px;">Data</th>
+            <th style="width: 100px;">Data</th>
             <th>Sample</th>
             <th>MAE</th>
             <th>SSIM</th>
