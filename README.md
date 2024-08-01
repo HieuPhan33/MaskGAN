@@ -6,7 +6,9 @@
 
 * New publication is coming out! **Mixed-view Refinement MaskGAN: Anatomical Preservation for Unpaired MRI-to-CT Synthesis**. Stay tuned!
 * **Refinement MaskGAN version**: An extended model, which refined images using a simple, yet effective multi-stage, multi-plane approach is develop to improve the volumetric definition of synthetic images.
-* **Model enhancements**: We include selection strategies to choose similar MRI/CT matches based on the position of slices.
+* 20/07/2024 - **Model enhancements**: We include selection strategies to choose similar MRI/CT matches based on the position of slices.
+* 01/08/2024 - **Extensive experiments**: We conduct experiments on two additional public datasets: an adult brain CERMEP-IDB-MRXFDG,and an abdominal datasets for downstream segmentation eval. We re-evaluate synthesis quality in raw Houndsfield Unit (HU) to measure clinical utility!
+* 01/08/2024 - **Checkpoint sharing**: All checkpoints are shared for public use. Inference and evaluation scripts are released!
 
 ## 🏆 MaskGAN Framework
 
