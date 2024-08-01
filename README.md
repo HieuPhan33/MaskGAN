@@ -55,28 +55,13 @@ pip install -r requirements.txt
 ## 📚 Dataset Preparation and Mask Generations
 Refer to [preprocess/README.md](./preprocess/README.md) file.
 
-## 🚀 MaskGAN Training and Testing
-- Sampled training script is provided in train.sh
-- Modify image augmentations as needed `--load_size` (resize one dimension to be a fixed size), `--pad_size` (pad both dimensions to an equal size), `--crop_size` (crop both dimensions to an equal size).
-- Train a model:
-- `lambda_mask` and `lambda_shape` specify hyper-parameters of our proposed mask loss and shape consistency loss.
-- `opt_level` specifies Apex mixed-precision optimization level. The default is `O0` which is full FP32 training. If low GPU memory, you can use O1 or O2 for mixed precision training.
-- Training command:
-```
-python train.py --dataroot dataroot --name exp_name --gpu_ids 0 --display_id 0 --model mask_gan --netG att 
---dataset_mode unaligned --pool_size 50 --no_dropout
---norm instance --lambda_A 10 --lambda_B 10 --lambda_identity 0.5 --lambda_mask 1.0 --lambda_shape 0.5 --load_size 150 --pad_size 225 --crop_size 224 --preprocess resize_pad_crop --no_flip
---batch_size 4 --niter 40 --niter_decay 40 --display_freq 1000 --print_freq 1000 --n_attentions 5
-```
-- For your own experiments, you might want to specify --netG, --norm. Our mask generators `netG` are `att` and `unet_att`.
-- To continue model training, append `--continue_train --epoch_count xxx` on the command line.
-- Test the model:
+## 🚀 Model Testing
 ```
 python test.py --dataroot dataroot --name exp_name --gpu_ids 0 --model mask_gan --netG att 
 --dataset_mode unaligned --no_dropout --load_size 150 --pad_size 225 --crop_size 224 --preprocess resize_pad_crop --no_flip
 --batch_size 4
 ```
-- The results will be saved at `./results/exp_name`. Use `--results_dir {directory_path_to_save_result}` to specify the results directory. There will be four folders `fake_A`, `fake_B`, `real_A`, `real_B` created in `results`.
+The results will be saved at `./results/exp_name`. Use `--results_dir {directory_path_to_save_result}` to specify the results directory. There will be four folders `fake_A`, `fake_B`, `real_A`, `real_B` created in `results`.
 
 ## 💾 Use of pretrained weights
 
@@ -96,6 +81,24 @@ python evaluation.py --results_folder exp_name
 ```
 
 Results for MRI-to-CT synthesis generation and CT-to-MRI are shown.
+
+## 🚀 MaskGAN Training
+- Sampled training script is provided in train.sh
+- Modify image augmentations as needed `--load_size` (resize one dimension to be a fixed size), `--pad_size` (pad both dimensions to an equal size), `--crop_size` (crop both dimensions to an equal size).
+- Train a model:
+  - `lambda_mask` and `lambda_shape` specify hyper-parameters of our proposed mask loss and shape consistency loss.
+  - `opt_level` specifies Apex mixed-precision optimization level. The default is `O0` which is full FP32 training. If low GPU memory, you can use O1 or O2 for mixed precision training.
+- Training command:
+```
+python train.py --dataroot dataroot --name exp_name --gpu_ids 0 --display_id 0 --model mask_gan --netG att 
+--dataset_mode unaligned --pool_size 50 --no_dropout
+--norm instance --lambda_A 10 --lambda_B 10 --lambda_identity 0.5 --lambda_mask 1.0 --lambda_shape 0.5 --load_size 150 --pad_size 225 --crop_size 224 --preprocess resize_pad_crop --no_flip
+--batch_size 4 --niter 40 --niter_decay 40 --display_freq 1000 --print_freq 1000 --n_attentions 5
+```
+- For your own experiments, you might want to specify --netG, --norm. Our mask generators `netG` are `att` and `unet_att`.
+- To continue model training, append `--continue_train --epoch_count xxx` on the command line.
+
+
 
 
 ## 📜 Citation
