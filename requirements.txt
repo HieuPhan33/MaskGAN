@@ -8,3 +8,4 @@ wandb
 protobuf==3.20.*
 elasticdeform==0.5.1
 torchmetrics
+scikit-image==0.19.2 

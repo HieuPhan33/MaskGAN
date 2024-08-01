@@ -30,7 +30,6 @@ The repository offers the official implementation of our paper in PyTorch. The n
 | Unpaired Adult abdominal MRI/CT images ([Link](https://chaos.grand-challenge.org/Download/)) | <img src="imgs/adult_abdominal_sample.png" width="100">  | - | - | - | [Download](https://drive.google.com/file/d/1pa3vsPohB6_aCmGoHe_1V851yZHg_1Ae/view?usp=drive_link) |
 
 
-
 ## 🛠️ Installation
 ### Option 1: Directly use our Docker image
 - We have created a public docker image `stevephan46/maskgan:d20b79d4731210c9d287a370e37b423006fd1425`.
@@ -58,9 +57,6 @@ Refer to [preprocess/README.md](./preprocess/README.md) file.
 - Sampled training script is provided in train.sh
 - Modify image augmentations as needed `--load_size` (resize one dimension to be a fixed size), `--pad_size` (pad both dimensions to an equal size), `--crop_size` (crop both dimensions to an equal size).
 - Train a model:
-```
-sh train.sh
-```
 - `lambda_mask` and `lambda_shape` specify hyper-parameters of our proposed mask loss and shape consistency loss.
 - `opt_level` specifies Apex mixed-precision optimization level. The default is `O0` which is full FP32 training. If low GPU memory, you can use O1 or O2 for mixed precision training.
 - Training command:
@@ -74,7 +70,9 @@ python train.py --dataroot dataroot --name exp_name --gpu_ids 0 --display_id 0 -
 - To continue model training, append `--continue_train --epoch_count xxx` on the command line.
 - Test the model:
 ```
-sh test.sh
+python test.py --dataroot dataroot --name exp_name --gpu_ids 0 --model mask_gan --netG att 
+--dataset_mode unaligned --no_dropout --load_size 150 --pad_size 225 --crop_size 224 --preprocess resize_pad_crop --no_flip
+--batch_size 4
 ```
 - The results will be saved at `./results/exp_name`. Use `--results_dir {directory_path_to_save_result}` to specify the results directory. There will be four folders `fake_A`, `fake_B`, `real_A`, `real_B` created in `results`.
 
@@ -89,7 +87,14 @@ This [zip file](https://drive.usercontent.google.com/download?id=15e1pS2V2DDdQQq
 You can use other pretrained weights, which are shown in the first table of this page. 
 
 ## 🔍 Evaluate results
-- The script `eval.sh` is provided as an example. Modify the variable `exp_name` to match your experiment name specified by parameter `--name` when running test.py.
+- The script `evaluation.py` allows to execute a validation of results converting values of MRI and CT images to their original units (Magnetic field and Hounsfield units (HU), respectively). You need to indicate the folder `exp_name` of the images that you want to evaluate running:
+
+```
+python evaluation.py --results_folder exp_name
+```
+
+Results for MRI-to-CT synthesis generation and CT-to-MRI are shown.
+
 
 ## 📜 Citation
 If you use this code for your research, please cite our papers.

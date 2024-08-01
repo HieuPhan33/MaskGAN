@@ -194,6 +194,7 @@ class BaseModel(ABC):
             if isinstance(name, str):
                 load_filename = '%s_net_%s.pth' % (epoch, name)
                 if self.opt.use_pretrained_weights:
+                    load_filename = load_filename.replace("latest","best")
                     load_path = os.path.join("./pretrained_weights", load_filename)
                 else:      
                     load_path = os.path.join(self.save_dir, load_filename)
