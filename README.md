@@ -107,7 +107,7 @@ If you use this code for your research, please cite our papers.
 ```
 @inproceedings{phan2023maskgan,
   title = {Structure-Preserving Synthesis: {MaskGAN} for Unpaired {MR-CT} Translation},
-  author = {Phan, Minh Hieu and Liao, Zhibin and Verjans, Johan and To, Minh-Son},
+  author = {Phan, Vu Minh Hieu and Liao, Zhibin and Verjans, Johan and To, Minh-Son},
   booktitle = {International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI)},
   year = {2023}
 }
