@@ -105,11 +105,13 @@ python train.py --dataroot dataroot --name exp_name --gpu_ids 0 --display_id 0 -
 If you use this code for your research, please cite our papers.
 
 ```
-@inproceedings{phan2023maskgan,
-  title = {Structure-Preserving Synthesis: {MaskGAN} for Unpaired {MR-CT} Translation},
-  author = {Phan, Vu Minh Hieu and Liao, Zhibin and Verjans, Johan and To, Minh-Son},
-  booktitle = {International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI)},
-  year = {2023}
+@inproceedings{phan2023structure,
+  title={Structure-preserving synthesis: {MaskGAN} for unpaired mr-ct translation},
+  author={Phan, Vu Minh Hieu and Liao, Zhibin and Verjans, Johan W and To, Minh-Son},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={56--65},
+  year={2023},
+  organization={Springer}
 }
 ```
 
