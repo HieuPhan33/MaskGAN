@@ -33,7 +33,7 @@ Unpaired Pediatric brain MRI-CT images (Private dataset) <img src="imgs/pediatri
 | AttentionGAN [Tang2019]       | 2D       | 81.67               | 21.24  | 75.94  | 115.30                | 16.22  | 67.13  |
 | QS-Attn-Seg [Liu2023]         | 3D       | 63.55               | 22.32  | 81.42  | 113.82                | 16.71  | 67.97  |
 | MaskGAN (w/o Shape)           | 2D       | 62.28               | 22.56  | 82.36  | 112.88                | 16.83  | 68.34  |
-| MaskGAN (Ours) [ckpt](https://drive.google.com/file/d/15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i/view?usp=drive_link)                | 2D       | **62.13**             | **22.89** | **82.50** | **112.75**              | **16.95** | **68.44** |
+| [MaskGAN (Ours)](https://drive.google.com/file/d/15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i/view?usp=drive_link)                | 2D       | **62.13**             | **22.89** | **82.50** | **112.75**              | **16.95** | **68.44** |
 
 
 Unpaired Adult brain MRI/CT images. Original dataset are paired ([Link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8446124/)) <img src="imgs/adult_brain_sample.png" width="100">
@@ -45,7 +45,7 @@ Unpaired Adult brain MRI/CT images. Original dataset are paired ([Link](https://
 | AttentionGAN [Tang2019]       | 2D       | 51.41               | 21.48  | 84.15  | 72.23                 | 19.88  | 63.75  |
 | QS-Attn-Seg [Liu2023]         | 3D       | 46.71               | 22.29  | 86.01  | 63.98                 | 20.08  | 66.23  |
 | MaskGAN (w/o Shape)           | 2D       | 46.26               | 22.32  | 86.05  | 63.60                 | 20.12  | 67.68  |
-| MaskGAN (Ours) [ckpt](https://drive.google.com/file/d/1FUTEDrw8G92zgc0rRZ4TRxHFgkkPhk7R/view?usp=drive_link)                | 2D       | **45.11**             | **22.45** | **86.31** | **62.95**               | **20.53** | **67.87** |
+| [MaskGAN (Ours)](https://drive.google.com/file/d/1FUTEDrw8G92zgc0rRZ4TRxHFgkkPhk7R/view?usp=drive_link)                | 2D       | **45.11**             | **22.45** | **86.31** | **62.95**               | **20.53** | **67.87** |
 
 
 
