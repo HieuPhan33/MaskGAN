@@ -25,6 +25,21 @@ A novel unsupervised MR-to-CT synthesis method that:
 The repository offers the official implementation of our paper in PyTorch. The next reflects some results of using **MaskGAN** in different benchmarks. Results are shown over original values on radiometric values for MRI and Hounsfield unit (HU) for CT scans. In addition, the best weights obtained during the training stage are shared to be used for inference or retraining.
 
 
+Unpaired Pediatric brain MRI-CT images (Private dataset) - <img src="imgs/pediatric_brain_sample.png" width="100">
+| **Methods**                   | **Type** | **Primary: MRI→CT** |        |        | **Secondary: CT→MRI** |        |        |
+|-------------------------------|----------|---------------------|--------|--------|-----------------------|--------|--------|
+|                               |          | **MAE ↓**           | **PSNR ↑** | **SSIM (%) ↑** | **MAE ↓**             | **PSNR ↑** | **SSIM (%) ↑** |
+| CycleGAN [Zhu2017]            | 2D       | 80.86               | 21.33  | 75.07  | 118.15                | 15.04  | 65.26  |
+| AttentionGAN [Tang2019]       | 2D       | 81.67               | 21.24  | 75.94  | 115.30                | 16.22  | 67.13  |
+| shape-CycleGAN [Ge2019]       | 2D       | 65.90               | 21.59  | 78.10  | 115.09                | 16.30  | 67.39  |
+| sc-CycleGAN [Yang2020]        | 2D       | 62.69               | 22.41  | 82.36  | 113.99                | 16.42  | 67.58  |
+| QS-Attn [Hu2022]              | 2D       | 80.43               | 21.29  | 75.63  | 117.22                | 15.92  | 66.76  |
+| 3DCycleGAN [Liu2021]          | 3D       | 108.16              | 17.24  | 56.14  | 136.18                | 13.78  | 58.32  |
+| QS-Attn-Seg [Liu2023]         | 3D       | 63.55               | 22.32  | 81.42  | 113.82                | 16.71  | 67.97  |
+| MaskGAN (w/o Shape)           | 2D       | 62.28               | 22.56  | 82.36  | 112.88                | 16.83  | 68.34  |
+| MaskGAN (Ours) [Download](https://drive.google.com/file/d/15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i/view?usp=drive_link)                | 2D       | **62.13**             | **22.89** | **82.50** | **112.75**              | **16.95** | **68.44** |
+
+
 | Data | Sample | MAE | SSIM | PSNR |  Weights     |
 |------|--------|---------|---------|---------|--------|
 | Unpaired Pediatric brain MRI/CT images (Private dataset) | <img src="imgs/pediatric_brain_sample.png" width="100"> | 60.76 | 83.23 | 23.95 | [Download](https://drive.google.com/file/d/15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i/view?usp=drive_link) |
