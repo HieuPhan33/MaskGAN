@@ -38,7 +38,7 @@ Unpaired Pediatric brain MRI-CT images (Private dataset) <img src="imgs/pediatri
 
 Unpaired Adult brain MRI/CT images. Original dataset are paired ([Link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8446124/)) <img src="imgs/adult_brain_sample.png" width="100">
 
-| **Methods**                   | **Type** | **Primary: MRI→CT** |        |        | **Secondary: CT→MRI** |        |        |
+| **Methods**                   | **Type** | **MRI→CT** |        |        | **CT→MRI** |        |        |
 |-------------------------------|----------|---------------------|--------|--------|-----------------------|--------|--------|
 |                               |          | **MAE ↓**           | **PSNR ↑** | **SSIM (%) ↑** | **MAE ↓**             | **PSNR ↑** | **SSIM (%) ↑** |
 | CycleGAN [Zhu2017]            | 2D       | 52.10               | 21.43  | 84.12  | 71.57                 | 19.67  | 62.07  |
