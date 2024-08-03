@@ -30,7 +30,7 @@ Unpaired Pediatric brain MRI-CT images (Private dataset) <img src="imgs/pediatri
 |-------------------------------|----------|---------------------|--------|--------|-----------------------|--------|--------|
 |                               |          | **MAE ↓**           | **PSNR ↑** | **SSIM (%) ↑** | **MAE ↓**             | **PSNR ↑** | **SSIM (%) ↑** |
 | CycleGAN [Zhu2017,ICCV]            | 2D       | 80.86               | 21.33  | 75.07  | 118.15                | 15.04  | 65.26  |
-| AttentionGAN [Tang2021,TNLS]       | 2D       | 81.67               | 21.24  | 75.94  | 115.30                | 16.22  | 67.13  |
+| AttentionGAN [Tang2021,TNNLS]       | 2D       | 81.67               | 21.24  | 75.94  | 115.30                | 16.22  | 67.13  |
 | QS-Attn-Seg [Liu2023,arxiv]         | 3D       | 63.55               | 22.32  | 81.42  | 113.82                | 16.71  | 67.97  |
 | MaskGAN (w/o Shape)           | 2D       | 62.28               | 22.56  | 82.36  | 112.88                | 16.83  | 68.34  |
 | [MaskGAN (Ours)](https://drive.google.com/file/d/15e1pS2V2DDdQQqIdEdD7cpZstyQuSG_i/view?usp=drive_link)                | 2D       | **62.13**             | **22.89** | **82.50** | **112.75**              | **16.95** | **68.44** |
@@ -42,7 +42,7 @@ Unpaired Adult brain MRI/CT images. Original dataset are paired ([Link](https://
 |-------------------------------|----------|---------------------|--------|--------|-----------------------|--------|--------|
 |                               |          | **MAE ↓**           | **PSNR ↑** | **SSIM (%) ↑** | **MAE ↓**             | **PSNR ↑** | **SSIM (%) ↑** |
 | CycleGAN [Zhu2017,ICCV]            | 2D       | 52.10               | 21.43  | 84.12  | 71.57                 | 19.67  | 62.07  |
-| AttentionGAN [Tang2021,TNLS]       | 2D       | 51.41               | 21.48  | 84.15  | 72.23                 | 19.88  | 63.75  |
+| AttentionGAN [Tang2021,TNNLS]       | 2D       | 51.41               | 21.48  | 84.15  | 72.23                 | 19.88  | 63.75  |
 | QS-Attn-Seg [Liu2023,arxiv]         | 3D       | 46.71               | 22.29  | 86.01  | 63.98                 | 20.08  | 66.23  |
 | MaskGAN (w/o Shape)           | 2D       | 46.26               | 22.32  | 86.05  | 63.60                 | 20.12  | 67.68  |
 | [MaskGAN (Ours)](https://drive.google.com/file/d/1FUTEDrw8G92zgc0rRZ4TRxHFgkkPhk7R/view?usp=drive_link)                | 2D       | **45.11**             | **22.45** | **86.31** | **62.95**               | **20.53** | **67.87** |
